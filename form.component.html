@@ -1,0 +1,35 @@
+<div class="b">
+    <form class="a" [formGroup]="stuform">
+        Name:<input type="text" formControlName ="Name"><br>
+        Dept:<input type="text" formControlName ="Dept"><br>
+        Age:<input type="text" formControlName ="Age"><br>
+        Address:<input type="text" formControlName ="Address"><br>
+        City:<input type="text" formControlName ="City"><br>
+        <button class="btn btn-primary" (click)="send()">Save</button>
+        <button class="btn btn-success" (click) ="get()">View</button>
+        
+      </form>
+      <table border =1>
+        <tbody >
+          <tr *ngIf ="show">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Dept</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Delete</th>
+          </tr>
+          <tr *ngFor ="let studetail of studetails">
+            <td>{{studetail.Id}}</td>
+            <td>{{studetail.Name}}</td>
+            <td>{{studetail.Dept}}</td>
+            <td>{{studetail.Age}}</td>
+            <td>{{studetail.Address}}</td>
+            <td>{{studetail.City}}</td>
+            <button class="btn btn-danger"(click) = delete(studetail.Id) >DElete</button>
+            <button (click) ="update(studetail.Id,studetail.data)">Update</button>
+          </tr>
+        </tbody>
+      </table>
+</div>
